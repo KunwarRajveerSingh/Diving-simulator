@@ -1,5 +1,4 @@
-//Diver rotation component
-AFRAME.registerComponent("diver-rotation-reader", {
+AFRAME.registerComponent("diver-rotation", {
   schema: {
     speedOfRoation: { type: "number", default: 0 },
     speedOfAscent: { type: "number", default: 0 }
@@ -7,14 +6,13 @@ AFRAME.registerComponent("diver-rotation-reader", {
   init: function () {
     window.addEventListener("keydown", (e) => {
 
-      //get the data from the attributes
       this.data.speedOfRoation = this.el.getAttribute("rotation");      
       this.data.speedOfAscent = this.el.getAttribute("position");
 
       var diverRotation = this.data.speedOfRoation;      
       var diverPosition = this.data.speedOfAscent;
 
-      //control the attributes with the Arrow Keys
+      //controls
       if (e.key === "ArrowRight") {
         if (diverRotation.x < 10) {
           diverRotation.x += 0.5;
